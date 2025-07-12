@@ -1,5 +1,19 @@
 {
   "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.16.3",
     "node.js": "^0.0.1-security"
-  }
+  },
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
 }
