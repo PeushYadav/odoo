@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { Menu, X, ShoppingCart, Search, Leaf, User } from "lucide-react";
 import Auth from "../Auth/Auth"; // Adjust path if it's in another folder
 
 const navItems = [
-  { name: "Home", href: "#hero" },
-  { name: "Categories", href: "#categories" },
-  { name: "Products", href: "#products" },
-  { name: "Testimonials", href: "#testimonials" },
-  { name: "About", href: "#about" },
+  { name: "Home", href: "/" },
+  { name: "Swap", href: "/swap" },
+  { name: "Dashboard", href: "/dashboard" },
+  { name: "About", href: "/about" },
+  { name: "FAQ", href: "/faq" },
 ];
 
 export const Navbar = () => {
@@ -30,22 +31,26 @@ export const Navbar = () => {
       >
         <div className="flex justify-between items-center px-6 py-4">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <Leaf className="w-8 h-8 text-green-600" />
             <span className="text-xl font-bold text-gray-800">ReWear</span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8 items-center">
             {navItems.map((item, index) => (
-              <a
+              <NavLink
                 key={index}
-                href={item.href}
-                className="text-base font-medium transition-all duration-300 hover:text-green-600 hover:scale-105 relative group"
+                to={item.href}
+                className={({ isActive }) =>
+                  `text-base font-medium transition-all duration-300 hover:text-green-600 hover:scale-105 relative group ${
+                    isActive ? 'text-green-600' : ''
+                  }`
+                }
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-600 transition-all duration-300 group-hover:w-full"></span>
-              </a>
+              </NavLink>
             ))}
           </div>
 
@@ -63,16 +68,10 @@ export const Navbar = () => {
 
           {/* Right buttons */}
           <div className="flex items-center space-x-4">
-            {/* Shopping Cart button */}
-            <button className="hidden md:flex items-center space-x-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold py-2 px-4 rounded-2xl text-sm transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-              <ShoppingCart size={18} />
-              <span>Cart</span>
-            </button>
-
             {/* Login button */}
             <button
               onClick={() => setShowAuth(true)}
-              className="hidden md:inline-flex items-center space-x-2 bg-white border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-semibold py-2 px-4 rounded-2xl text-sm transition-all duration-300 transform hover:scale-105"
+              className="hidden md:inline-flex items-center space-x-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold py-2 px-4 rounded-2xl text-sm transition-all duration-300 transform hover:scale-105"
             >
               <User size={18} />
               <span>Login</span>
@@ -92,14 +91,18 @@ export const Navbar = () => {
         {isMenuOpen && (
           <div className="flex flex-col space-y-4 px-6 py-4 bg-white/95 backdrop-blur-md md:hidden transition-all duration-300 border-t border-gray-200">
             {navItems.map((item, index) => (
-              <a
+              <NavLink
                 key={index}
-                href={item.href}
+                to={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className="text-base font-medium transition-all duration-300 hover:text-green-600 hover:pl-2"
+                className={({ isActive }) =>
+                  `text-base font-medium transition-all duration-300 hover:text-green-600 hover:pl-2 ${
+                    isActive ? 'text-green-600' : ''
+                  }`
+                }
               >
                 {item.name}
-              </a>
+              </NavLink>
             ))}
 
             <div className="relative">
@@ -111,14 +114,9 @@ export const Navbar = () => {
               />
             </div>
 
-            <button className="flex items-center justify-center space-x-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold py-3 px-4 rounded-2xl text-sm transition-all duration-300">
-              <ShoppingCart size={20} />
-              <span>Shopping Cart</span>
-            </button>
-
             <button
               onClick={() => setShowAuth(true)}
-              className="flex items-center justify-center space-x-2 bg-white border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-semibold py-3 px-4 rounded-2xl text-sm transition-all duration-300"
+              className="flex items-center justify-center space-x-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold py-3 px-4 rounded-2xl text-sm transition-all duration-300"
             >
               <User size={20} />
               <span>Login</span>
