@@ -8,15 +8,16 @@ exports.register = async (req, res) => {
   const { username, password } = req.body;
 
   try {
-    const existing = await User.findOne({ username });
-    if (existing) return res.status(400).json({ message: 'User already exists' });
+     const { username, password } = req.body;
 
-    const hash = await bcrypt.hash(password, 10);
-    await User.create({ username, password: hash });
+    const newUser = new User({ username, password });
+    await newUser.save();
 
-    res.status(201).json({ message: 'User registered successfully' });
+    console.log("✅ User registered:", newUser);
+    res.status(201).json({ message: "Registered!", user: newUser });
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    console.error("❌ Registration failed:", err.message);
+    res.status(500).json({ error: "Server error" });
   }
 };
 

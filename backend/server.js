@@ -15,7 +15,7 @@ app.use('/api/auth', authRoutes);
 
 // ✅ MongoDB connection
 mongoose
-  .connect('mongodb://localhost:27017/jwtauth')
+  .connect('mongodb+srv://peushyadav07:HnGDiOrey7qmHcoN@cluster0.euzb4z2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
   .then(() => {
     console.log('✅ MongoDB Connected');
     app.listen(5000, () => console.log('🚀 Server running on port 5000'));
