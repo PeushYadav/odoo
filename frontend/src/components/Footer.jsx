@@ -16,9 +16,10 @@ const Footer = () => {
     { name: 'About', href: '/about' },
     { name: 'Swap', href: '/swap' },
     { name: 'FAQ', href: '/faq' },
+    { name: 'Upload', href: '/upload' },
+    { name: 'Cart', href: '/cart' },
     { name: 'Dashboard', href: '/dashboard' },
-    { name: 'Contact', href: '/contact' },
-    { name: 'Privacy', href: '/privacy' }
+    { name: 'Contact', href: '/contact' }
   ];
 
   const socialLinks = [

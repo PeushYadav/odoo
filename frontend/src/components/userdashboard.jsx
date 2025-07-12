@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const UserDashboard = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -197,21 +198,35 @@ const UserDashboard = () => {
               <h3 className="text-lg font-semibold text-gray-800 mb-4">Quick Actions</h3>
               <div className="space-y-3">
                 {[
-                  { label: 'Upload New Item', icon: '📤', color: 'green' },
+                  { label: 'Upload New Item', icon: '📤', color: 'green', link: '/upload' },
                   { label: 'Browse Items', icon: '🔍', color: 'teal' },
                   { label: 'My Swaps', icon: '🔄', color: 'emerald' },
                   { label: 'Points History', icon: '📊', color: 'green' }
                 ].map((action, index) => (
-                  <button
-                    key={index}
-                    className="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-green-50 transition-all duration-300 transform hover:scale-105 group"
-                  >
-                    <span className="text-xl">{action.icon}</span>
-                    <span className="font-medium text-gray-700 group-hover:text-green-600">{action.label}</span>
-                    <svg className="w-4 h-4 text-gray-400 group-hover:text-green-500 ml-auto transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
+                  action.link ? (
+                    <Link
+                      key={index}
+                      to={action.link}
+                      className="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-green-50 transition-all duration-300 transform hover:scale-105 group"
+                    >
+                      <span className="text-xl">{action.icon}</span>
+                      <span className="font-medium text-gray-700 group-hover:text-green-600">{action.label}</span>
+                      <svg className="w-4 h-4 text-gray-400 group-hover:text-green-500 ml-auto transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
+                  ) : (
+                    <button
+                      key={index}
+                      className="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-green-50 transition-all duration-300 transform hover:scale-105 group"
+                    >
+                      <span className="text-xl">{action.icon}</span>
+                      <span className="font-medium text-gray-700 group-hover:text-green-600">{action.label}</span>
+                      <svg className="w-4 h-4 text-gray-400 group-hover:text-green-500 ml-auto transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  )
                 ))}
               </div>
             </div>

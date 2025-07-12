@@ -5,10 +5,11 @@ import './index.css'
 import Layout from './layout.jsx'
 import LandingPage from './components/LandingPage.jsx'
 import UserDashboard from './components/userdashboard.jsx'
-
 import About from './components/About.jsx'
 import FAQ from './components/faq.jsx'
-import SwapPage from './components/swapPage.jsx'
+import SwapPage from './components/SwapPage.jsx'
+import ItemListingPage from './components/detailsform.jsx'
+import CartPage from './components/mycart.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -18,6 +19,8 @@ createRoot(document.getElementById('root')).render(
           <Route index element={<LandingPage />} />
           <Route path="swap" element={<SwapPage />} />
           <Route path="dashboard" element={<UserDashboard />} />
+          <Route path="upload" element={<ItemListingPage />} />
+          <Route path="cart" element={<CartPage />} />
           <Route path="about" element={<About />} />
           <Route path="faq" element={<FAQ />} />
         </Route>

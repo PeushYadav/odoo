@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Menu, X, ShoppingCart, Search, Leaf, User } from "lucide-react";
+import { Menu, X, ShoppingCart, Search, Leaf, User, Upload } from "lucide-react";
 import Auth from "../Auth/Auth"; // Adjust path if it's in another folder
 
 const navItems = [
@@ -68,10 +68,28 @@ export const Navbar = () => {
 
           {/* Right buttons */}
           <div className="flex items-center space-x-4">
+            {/* Cart button */}
+            <Link
+              to="/cart"
+              className="hidden md:flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-2 px-4 rounded-2xl text-sm transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            >
+              <ShoppingCart size={18} />
+              <span>My Cart</span>
+            </Link>
+
+            {/* Upload button */}
+            <Link
+              to="/upload"
+              className="hidden md:flex items-center space-x-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold py-2 px-4 rounded-2xl text-sm transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            >
+              <Upload size={18} />
+              <span>Upload</span>
+            </Link>
+
             {/* Login button */}
             <button
               onClick={() => setShowAuth(true)}
-              className="hidden md:inline-flex items-center space-x-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold py-2 px-4 rounded-2xl text-sm transition-all duration-300 transform hover:scale-105"
+              className="hidden md:inline-flex items-center space-x-2 bg-white border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-semibold py-2 px-4 rounded-2xl text-sm transition-all duration-300 transform hover:scale-105"
             >
               <User size={18} />
               <span>Login</span>
@@ -114,9 +132,25 @@ export const Navbar = () => {
               />
             </div>
 
+            <Link
+              to="/cart"
+              className="flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 px-4 rounded-2xl text-sm transition-all duration-300"
+            >
+              <ShoppingCart size={20} />
+              <span>My Cart</span>
+            </Link>
+
+            <Link
+              to="/upload"
+              className="flex items-center justify-center space-x-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold py-3 px-4 rounded-2xl text-sm transition-all duration-300"
+            >
+              <Upload size={20} />
+              <span>Upload Item</span>
+            </Link>
+
             <button
               onClick={() => setShowAuth(true)}
-              className="flex items-center justify-center space-x-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold py-3 px-4 rounded-2xl text-sm transition-all duration-300"
+              className="flex items-center justify-center space-x-2 bg-white border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-semibold py-3 px-4 rounded-2xl text-sm transition-all duration-300"
             >
               <User size={20} />
               <span>Login</span>
