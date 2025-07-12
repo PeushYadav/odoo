@@ -11,8 +11,8 @@ function App() {
   return (
     <>
     <Navbar/>
-    <Auth />
-    <Card />
+  
+   
     <LandingPage/>
     <UserDashboard/>
     <ProductDetailPage/>
