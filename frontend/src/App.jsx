@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Auth from './components/Auth/Auth';
 import Card from './components/Card/card';
+import LandingPage from './components/LandingPage';
 
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <>
     <Auth />
     <Card />
+    <LandingPage/>
     </>
   )
  
