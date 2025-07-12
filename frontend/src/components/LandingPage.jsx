@@ -3,6 +3,7 @@ import React from "react";
 import HeroSection from "./HeroSection";
 import CategorySection from "./CategorySection";
 import ProductPreview from "./ProductPreview";
+import TestimonialSection from "./TestimonialSection";
 import CTASection from "./CTASection";
 
 const LandingPage = () => {
@@ -11,6 +12,7 @@ const LandingPage = () => {
       <HeroSection />
       <CategorySection />
       <ProductPreview />
+      <TestimonialSection />
       <CTASection />
     </div>
   );

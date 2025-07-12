@@ -4,7 +4,8 @@ import Auth from './components/Auth/Auth';
 import Card from './components/Card/card';
 import LandingPage from './components/LandingPage';
 import { Navbar } from './components/Card/navbar';
-
+import UserDashboard from './userdashboard';
+import ProductDetailPage from './components/productDesign';
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
     <Auth />
     <Card />
     <LandingPage/>
+    <UserDashboard/>
+    <ProductDetailPage/>
     
     </>
   )
